@@ -6,7 +6,7 @@
 <link rel="canonical" href="https://constructasi.com/daywalker.html" />
 <link rel="stylesheet" href="assets/css/styles.css" />
 <title>Daywalker — ConstructASI</title>
-<meta name="description" content="Daywalker: UE5-facing toolset aligned with CASI principles." />
+<meta name="description" content="Daywalker: open-source UE5 plugin for conversational NPCs, local runner, personas, and memory." />
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -26,14 +26,64 @@
 </header>
 <main id="main" class="main">
   <div class="container">
-    <h2>Daywalker</h2>
-    <!-- Paste your Daywalker 4 landing copy below (Overview + Key Capabilities + Roadmap). Keep paragraphs short. -->
-    <p><em>[PASTE OVERVIEW FROM DAYWALKER 4 HERE]</em></p>
-    <h3>Roadmap</h3>
-    <ul>
-      <li><em>[Day 0–7 summary here]</em></li>
-      <li><em>[Milestones beyond Week 1]</em></li>
-    </ul>
+
+    <h1>Daywalker</h1>
+
+    <section id="summary">
+      <h2>Project Summary</h2>
+      <p>
+        Daywalker is an open-source Unreal Engine 5 developer plug-in that lets teams
+        prototype conversational NPCs locally, offline, and directly inside the Editor.
+        The plug-in exposes a Blueprint-callable node that talks to a small local
+        language-model runner (llama.cpp-class) on the developer’s machine. A minimal
+        persona file and a fixed PromptComposer template shape behavior, while a simple
+        Memory store (JSON file) preserves a few salient facts across the session so NPCs
+        can recall prior interactions.
+      </p>
+      <p>
+        Daywalker targets the gap between cloud-only character engines and ad-hoc
+        wrappers by providing a cohesive, documented, and extensible local-first
+        workflow. The v1 deliverable includes the UE5 plug-in, runner, persona
+        schema/loader, PromptComposer, a basic Memory slot, a small demo map with two
+        NPCs (guard and merchant), and concise documentation. Code will be released under
+        a permissive license to encourage adoption and community contributions.
+      </p>
+    </section>
+
+    <section id="technical">
+      <h2>Technical Approach</h2>
+      <p>
+        Architecture consists of five parts:
+      </p>
+      <ol>
+        <li>
+          UE5 plug-in in C++ exposing a <code>DaywalkerAgent</code> Blueprint node
+          (Initialize, QueryLLM) and editor settings for runner host/port and model name.
+        </li>
+        <li>
+          Local runner process with <code>/health</code> and <code>/generate</code>
+          endpoints; initial output is buffered text for simplicity.
+        </li>
+        <li>
+          Bridge client in the plug-in with timeouts and error surfacing to the UE log.
+        </li>
+        <li>
+          Persona schema (JSON) loaded at init; a fixed PromptComposer template inserts
+          role, goals, style, and safety note.
+        </li>
+        <li>
+          Memory store as a JSON file holding the last N utterances with a small size
+          guard to keep prompts bounded.
+        </li>
+      </ol>
+      <p>
+        The MVP acceptance tests are: plug-in loads; runner responds; end-to-end echo in
+        PIE; persona alters style; memory enables a single fact recall on re-engagement.
+        Post-v1: optional streaming, SQLite store, voice/TTS, behavior-tree hooks, and
+        future UEFN exploration when platform pathways allow.
+      </p>
+    </section>
+
   </div>
 </main>
 <footer class="site"><div class="container">© ConstructASI</div></footer>
