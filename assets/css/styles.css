@@ -62,7 +62,7 @@ h1::after {
   background-image: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
   color: #fff;
 }
-.button:hover { filter: brightness(1.08); transform: translateY(-1px); transition: all 0.15s ease-in-out; }
+.button:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: all 0.15s ease-in-out; }
 .button.primary { /* kept for compatibility; same style as .button */ }
 
 /* Utilities for lab (harmless if unused) */
