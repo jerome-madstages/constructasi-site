@@ -1,6 +1,6 @@
 :root {
   --bg: #ffffff;
-  --fg: #0b1220;
+  --fg: #000000;
   --accent: #0a4cc5;
   --muted: #56607a;
 
@@ -84,3 +84,16 @@ h1::after {
 
 /* Footer (neutral) */
 footer.site { border-top: 1px solid #e8ebf2; color: var(--muted); font-size: 0.9rem; background: transparent; }
+
+/* Teaser links on the homepage hero */
+.teaser-link { font-weight: 700; color: var(--blue-deep); }
+
+/* Gradient accent bar above footer (site-wide) */
+footer.site::before {
+  content: "";
+  display: block;
+  height: 4px;
+  margin: 0 0 8px 0;
+  background: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
+  border-radius: 2px;
+}
