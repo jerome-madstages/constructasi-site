@@ -3,6 +3,18 @@
   --fg: #0b1220;
   --accent: #0a4cc5;
   --muted: #56607a;
+  /* Brand palette */
+  --blue-deep: #003F7D;
+  --gray-graphite: #343A40;
+  --cyan-neon: #00C8FF;
+  --red-molten: #B02E2E;
+  --orange-solar: #FF7A00;
+  --gold-metallic: #C4A747;
+  --teal-forest: #005F56;
+  --indigo-midnight: #1A1B4B;
+  --sand-pale: #E4DCCF;
+  --silver-cool: #D3D6DB;
+  --black-carbon: #181818;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
@@ -39,3 +51,23 @@ h2 { margin-top: 0; }
 
 /* Footer */
 footer.site { border-top: 1px solid #e8ebf2; color: var(--muted); font-size: 0.9rem; }
+
+/* Palette utilities (preview/lab usage) */
+.bg-blue { background: var(--blue-deep); color: #fff; }
+.bg-indigo { background: var(--indigo-midnight); color: #fff; }
+.bg-sand { background: var(--sand-pale); }
+.text-blue { color: var(--blue-deep); }
+.text-cyan { color: var(--cyan-neon); }
+.text-red { color: var(--red-molten); }
+.text-teal { color: var(--teal-forest); }
+.border-silver { border: 1px solid var(--silver-cool); }
+
+/* Button variants for preview */
+.button.cyan { background: var(--cyan-neon); color: #000; border-color: var(--cyan-neon); }
+.button.outline-blue { background: #fff; color: var(--blue-deep); border-color: var(--blue-deep); }
+.button.outline-teal { background: #fff; color: var(--teal-forest); border-color: var(--teal-forest); }
+
+/* Section styles for preview */
+.section { padding: 16px; border-radius: 10px; }
+.section.sand { background: var(--sand-pale); }
+.section.silver { background: #fff; border: 1px solid var(--silver-cool); }

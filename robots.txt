@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+User-agent: *
+Allow: /
+Disallow: /lab/
 Sitemap: https://constructasi.com/sitemap.xml
+Disallow: /lab/
