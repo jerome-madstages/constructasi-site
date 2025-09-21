@@ -54,7 +54,7 @@ h1::after {
 
 /* Hero: top-aligned; let h1 inherit global size */
 .hero { display: grid; align-items: start; min-height: auto; padding: 8px 0 14px 0; }
-.hero p { color: var(--muted); margin: 0 0 14px; }
+.hero p { color: #000000; margin: 0 0 14px; }
 
 /* Buttons: unified gradient everywhere */
 .button {
@@ -89,7 +89,7 @@ footer.site { border-top: 1px solid #e8ebf2; color: var(--muted); font-size: 0.9
 .teaser-link { font-weight: 700; color: var(--blue-deep); }
 
 /* Gradient accent bar above footer (site-wide) */
-footer.site::before {
+footer.site .container::before {
   content: "";
   display: block;
   height: 4px;
