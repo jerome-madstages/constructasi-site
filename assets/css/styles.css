@@ -14,13 +14,18 @@ nav { display: flex; gap: 16px; flex-wrap: wrap; }
 nav a { font-weight: 600; }
 header.site { border-bottom: 1px solid #e8ebf2; }
 footer.site { border-top: 1px solid #e8ebf2; color: var(--muted); font-size: 0.9rem; }
-.hero { display: grid; align-items: center; min-height: 90vh; }
-.hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 8px; } /* reduced to keep on one line */
+.main { padding: 28px 0; }
+
+/* HERO: top-aligned, no viewport forcing */
+.hero { display: grid; align-items: start; min-height: auto; padding: 20px 0; }
+.hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 8px; }
 .hero p { color: var(--muted); margin: 0 0 18px; }
+
+/* Buttons */
 .cta { display: flex; gap: 12px; flex-wrap: wrap; }
 .button { display: inline-block; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--accent); }
 .button.primary { background: var(--accent); color: #fff; }
-.main { padding: 28px 0; }
+
 h2 { margin-top: 0; }
 .skip { position: absolute; left: -9999px; }
 .skip:focus { left: 12px; top: 12px; background: #fff; padding: 8px 10px; border: 1px solid var(--accent); border-radius: 8px; }
