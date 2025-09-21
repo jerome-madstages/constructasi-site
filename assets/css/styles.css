@@ -88,3 +88,21 @@ footer.site { border-top: 1px solid #e8ebf2; color: var(--muted); font-size: 0.9
   border-color: var(--gold-metallic);
 }
 .grad-experiment-btn:hover { filter: saturate(1.05) brightness(1.03); }
+
+/* Preview-only gradient utilities (used on /lab/colors.html) */
+.grad-header {
+  background: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
+  color: #fff;
+}
+.grad-core-btn {
+  background-image: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
+  color: #fff; border-color: transparent;
+}
+.grad-core-btn:hover { filter: brightness(1.05); }
+
+.grad-experiment-btn {
+  background-image: linear-gradient(90deg, var(--teal-forest), var(--gold-metallic));
+  color: var(--red-molten);
+  border-color: var(--gold-metallic);
+}
+.grad-experiment-btn:hover { filter: saturate(1.05) brightness(1.03); }
