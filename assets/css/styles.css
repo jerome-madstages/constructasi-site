@@ -4,7 +4,7 @@
   --accent: #0a4cc5;
   --muted: #56607a;
 
-  /* Brand palette (available for later use) */
+  /* Brand palette */
   --blue-deep: #003F7D;
   --gray-graphite: #343A40;
   --cyan-neon: #00C8FF;
@@ -18,48 +18,62 @@
   --black-carbon: #181818;
 }
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+html, body { margin: 0; padding: 0; background: var(--sand-pale); color: var(--fg); }
 body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; font-size: 16px; }
-a { color: var(--accent); text-decoration: none; }
+
+/* Links use Deep Blue by convention */
+a { color: var(--blue-deep); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 .container { max-width: 980px; margin: 0 auto; padding: 16px 20px; }
 
-/* Sticky header (kept) */
-header.site { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid #e8ebf2; z-index: 1000; }
+/* Sticky header with Indigo→Blue→Cyan gradient and white nav links */
+header.site {
+  position: sticky; top: 0; z-index: 1000;
+  background: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
+  color: #fff; border-bottom: 0;
+}
 nav { display: flex; gap: 16px; flex-wrap: wrap; }
-nav a { font-weight: 600; }
+nav a { font-weight: 600; color: #fff; }
+nav a:hover { color: #fff; text-decoration: underline; }
 
-/* Main content spacing tightened */
+/* Main spacing */
 .main { padding: 12px 0; }
 
-/* Typography scale */
-h1 { font-size: clamp(1.5rem, 3vw, 1.9rem); line-height: 1.2; margin: 8px 0 10px; }
+/* Typography scale (smaller, consistent) */
+h1 { font-size: clamp(1.5rem, 3vw, 1.9rem); line-height: 1.2; margin: 8px 0 10px; position: relative; }
 h2 { font-size: 1.125rem; line-height: 1.35; margin: 10px 0 8px; font-weight: 700; }
-h3 { font-size: 1rem; line-height: 1.35; margin: 8px 0 6px; font-weight: 700; }
+h3 { font-size: 1rem;   line-height: 1.35; margin: 8px 0 6px;  font-weight: 700; }
 p  { margin: 0 0 14px; }
 
-/* Hero: top-aligned, no forced viewport height; let h1 inherit global size */
+/* Subtle gradient accent under page titles (echoes brand without heavy bars) */
+h1::after {
+  content: ""; display: block; height: 4px; margin-top: 8px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
+}
+
+/* Hero: top-aligned; let h1 inherit global size */
 .hero { display: grid; align-items: start; min-height: auto; padding: 8px 0 14px 0; }
 .hero p { color: var(--muted); margin: 0 0 14px; }
 
-/* Buttons */
-.cta { display: flex; gap: 12px; flex-wrap: wrap; }
-.button { display: inline-block; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--accent); }
-.button.primary { background: var(--accent); color: #fff; }
+/* Buttons: unified gradient everywhere */
+.button {
+  display: inline-block; padding: 10px 14px; border-radius: 10px; border: 0;
+  background-image: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
+  color: #fff;
+}
+.button:hover { filter: brightness(1.05); }
+.button.primary { /* kept for compatibility; same style as .button */ }
 
-/* Utilities (for lab/preview; harmless if unused) */
+/* Utilities for lab (harmless if unused) */
 .bg-blue { background: var(--blue-deep); color: #fff; }
 .bg-indigo { background: var(--indigo-midnight); color: #fff; }
 .bg-sand { background: var(--sand-pale); }
 .text-blue { color: var(--blue-deep); }
 .text-cyan { color: var(--cyan-neon); }
-.text-red { color: var(--red-molten); }
+.text-red  { color: var(--red-molten); }
 .text-teal { color: var(--teal-forest); }
 .border-silver { border: 1px solid var(--silver-cool); }
-.button.cyan { background: var(--cyan-neon); color: #000; border-color: var(--cyan-neon); }
-.button.outline-blue { background: #fff; color: var(--blue-deep); border-color: var(--blue-deep); }
-.button.outline-teal { background: #fff; color: var(--teal-forest); border-color: var(--teal-forest); }
 .section { padding: 16px; border-radius: 10px; }
 .section.sand { background: var(--sand-pale); }
 .section.silver { background: #fff; border: 1px solid var(--silver-cool); }
@@ -68,41 +82,5 @@ p  { margin: 0 0 14px; }
 .skip { position: absolute; left: -9999px; }
 .skip:focus { left: 12px; top: 12px; background: #fff; padding: 8px 10px; border: 1px solid var(--accent); border-radius: 8px; }
 
-/* Footer */
-footer.site { border-top: 1px solid #e8ebf2; color: var(--muted); font-size: 0.9rem; }
-
-/* Preview-only gradient utilities (used on /lab/colors.html) */
-.grad-header {
-  background: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
-  color: #fff;
-}
-.grad-core-btn {
-  background-image: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
-  color: #fff; border-color: transparent;
-}
-.grad-core-btn:hover { filter: brightness(1.05); }
-
-.grad-experiment-btn {
-  background-image: linear-gradient(90deg, var(--teal-forest), var(--gold-metallic));
-  color: var(--red-molten);
-  border-color: var(--gold-metallic);
-}
-.grad-experiment-btn:hover { filter: saturate(1.05) brightness(1.03); }
-
-/* Preview-only gradient utilities (used on /lab/colors.html) */
-.grad-header {
-  background: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
-  color: #fff;
-}
-.grad-core-btn {
-  background-image: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
-  color: #fff; border-color: transparent;
-}
-.grad-core-btn:hover { filter: brightness(1.05); }
-
-.grad-experiment-btn {
-  background-image: linear-gradient(90deg, var(--teal-forest), var(--gold-metallic));
-  color: var(--red-molten);
-  border-color: var(--gold-metallic);
-}
-.grad-experiment-btn:hover { filter: saturate(1.05) brightness(1.03); }
+/* Footer (neutral) */
+footer.site { border-top: 1px solid #e8ebf2; color: var(--muted); font-size: 0.9rem; background: transparent; }
