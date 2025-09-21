@@ -12,7 +12,7 @@ a:hover { text-decoration: underline; }
 .container { max-width: 980px; margin: 0 auto; padding: 20px; }
 nav { display: flex; gap: 16px; flex-wrap: wrap; }
 nav a { font-weight: 600; }
-header.site { border-bottom: 1px solid #e8ebf2; }
+header.site { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid #e8ebf2; z-index: 1000; }
 footer.site { border-top: 1px solid #e8ebf2; color: var(--muted); font-size: 0.9rem; }
 .main { padding: 28px 0; }
 
