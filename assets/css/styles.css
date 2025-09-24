@@ -57,12 +57,8 @@ h1::after {
 .hero p { color: #000000; margin: 0 0 14px; }
 
 /* Buttons: unified gradient everywhere */
-.button {
-  display: inline-block; padding: 10px 14px; border-radius: 10px; border: 0;
-  background-image: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
-  color: #fff;
-}
-.button:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: all 0.15s ease-in-out; }
+.button { display:inline-block; padding:10px 18px; border-radius:8px; font-weight:600; text-decoration:none; background: linear-gradient(90deg, var(--midnight-indigo), var(--deep-blue), var(--neon-cyan)); color:#fff; transition:all 0.15s ease-in-out; }
+.button:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
 .button.primary { /* kept for compatibility; same style as .button */ }
 
 /* Utilities for lab (harmless if unused) */
