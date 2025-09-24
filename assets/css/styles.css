@@ -97,3 +97,19 @@ footer.site .container::before {
   background: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
   border-radius: 2px;
 }
+
+/* Simple form styling for Contact > For Tech Education */
+.form { display: grid; gap: 10px; max-width: 720px; }
+.form .row { display: grid; gap: 6px; }
+.form label { font-weight: 600; }
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="tel"],
+.form select,
+.form textarea {
+  width: 100%; padding: 10px; border: 1px solid var(--silver-cool);
+  border-radius: 8px; background: #fff;
+}
+.form textarea { min-height: 120px; resize: vertical; }
+.form .actions { display: flex; gap: 12px; align-items: center; }
+.form small.muted { color: var(--muted); }
