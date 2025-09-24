@@ -109,3 +109,17 @@ footer.site .container::before {
 .form textarea { min-height: 120px; resize: vertical; }
 .form .actions { display: flex; gap: 12px; align-items: center; }
 .form small.muted { color: var(--muted); }
+
+/* Homepage inline teaser layout: show H2 + first paragraph on one line */
+.home-inline h2 {
+  display: inline;
+  margin-right: 8px;
+}
+.home-inline p:first-of-type {
+  display: inline;
+}
+.home-inline p:first-of-type::after {
+  content: "";
+  display: block; /* forces next paragraph (the "Next step" line) onto a new line */
+  height: 0;
+}
