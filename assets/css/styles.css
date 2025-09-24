@@ -30,7 +30,7 @@ a:hover { text-decoration: underline; }
 /* Sticky header with Indigo→Blue→Cyan gradient and white nav links */
 header.site {
   position: sticky; top: 0; z-index: 1000;
-  background: linear-gradient(90deg, var(--indigo-midnight), var(--blue-deep) 50%, var(--cyan-neon));
+  background: linear-gradient(90deg, #191970, #00FFFF);
   color: #fff; border-bottom: 0;
 }
 nav { display: flex; gap: 16px; flex-wrap: wrap; }
